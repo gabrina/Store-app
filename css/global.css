@@ -39,3 +39,143 @@ body {
     transform: rotate(360deg);
   }
 }
+
+/* ===== auth page ===== */
+#auth {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+#login-header {
+  color: var(--color-primary);
+  font-size: 2.5rem;
+}
+
+
+#login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 350px;
+  box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.3);
+  padding: 20px;
+  width: 450px;
+  border-radius: 10px;
+  margin: 50px;
+  background-color: white;
+}
+
+#auth input {
+  border-radius: 10px;
+  border: 1px grey solid;
+  padding: 10px;
+  width: 90%;
+  height: 50px;
+  font-size: 1rem;
+  color: var(--color-primary);
+}
+#auth input:focus {
+  outline: 1px #555555 solid;
+}
+
+#login-button {
+  width: 90%;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  background-color: var(--color-primary);
+  color: var(--color-background);
+  font-weight: bold;
+  height: 50px;
+}
+
+#login-button:hover {
+  cursor: pointer;
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+}
+
+#back-button {
+  color: black;
+  background-color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.3);
+
+}
+
+#back-button a {
+  text-decoration: none;
+}
+
+#back-button a i {
+  margin: 0px 5px;
+}
+
+/* ===== end of auth page ===== */
+
+#products {
+  flex: 3;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+  min-width: 600px;
+}
+#card {
+  background-color: rgba(255, 255, 250, 0.95);
+  /* very light cream */
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease;
+  width: 250px;
+  margin: 10px;
+  border: 1px solid #e4d1b0;
+}
+#card:hover {
+  transform: scale(1.02);
+}
+
+#product-image {
+  width: 100px;
+  height: 100%;
+  object-fit: cover;
+}
+
+#product-info {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#product-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #3e2c1e;
+}
+
+#control {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#product-price {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #5b3820;
+}
