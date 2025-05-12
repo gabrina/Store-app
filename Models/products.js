@@ -13,19 +13,27 @@ class Products {
   }
 
   createCard(data) {
-    const { id, title, price, image } = data;
+    const { category, id, image, price, rating, title } = data;
 
     const card = document.createElement("div");
     card.id = "card";
     card.innerHTML = `
-      <img src="${image}" id="product-image">
-      <div id="product-info">
-        <h3 id="product-name">${title}</h3>
-        <div id="control">
-          <span id="product-price">${price}KT</span>
-          <button data-id="${id}">+</button>
-        </div>
-      </div>`;
+    <div id="card-upper">
+      <div id="rating">
+       <i class="fa-solid fa-star"></i><span>${rating.rate}</span>
+      </div>
+      <div id="count">
+        <i class="fa-solid fa-user"></i><span>${rating.count}</span>
+      </div>
+    </div>
+    <img src="${image}" id="product-image">
+    <div id="product-info">
+      <h3 id="product-name">${title}</h3>
+      <div id="control">
+        <span id="product-price">${price}KT</span>
+        <button data-id="${id}">Buy<i class="fa-solid fa-cart-shopping"></i></button>
+      </div>
+    </div>`;
     this.parent.appendChild(card);
   }
 }

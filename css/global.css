@@ -56,14 +56,13 @@ body {
   font-size: 2.5rem;
 }
 
-
 #login {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
   height: 350px;
-  box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.3);
+  box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.3);
   padding: 20px;
   width: 450px;
   border-radius: 10px;
@@ -80,6 +79,7 @@ body {
   font-size: 1rem;
   color: var(--color-primary);
 }
+
 #auth input:focus {
   outline: 1px #555555 solid;
 }
@@ -110,8 +110,11 @@ body {
   border: none;
   border-radius: 5px;
   font-weight: bold;
-box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.3);
+  box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.3);
+}
 
+#back-button:hover {
+  cursor: pointer;
 }
 
 #back-button a {
@@ -124,6 +127,75 @@ box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.3);
 
 /* ===== end of auth page ===== */
 
+h3 {
+  margin: 20px 10px;
+  color: var(--color-primary);
+  font-size: 2rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#index-login-button {
+  background-color: white;
+  border: none;
+  padding: 5px 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  margin-right: 70px;
+  transition: transform 0.2s ease;
+}
+
+#index-login-button:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+#index-login-button i {
+  margin: 5px;
+  color: black;
+}
+
+#index-login-button a {
+  text-decoration: none;
+  color: black;
+  font-size: bold;
+  font-size: 1rem;
+}
+
+#shop-header {
+  margin: 10px;
+}
+
+#search-product {
+  padding: 5px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  outline: none;
+  height: 30px;
+  margin: 0px 0px 20px 10px;
+  width: 250px;
+}
+
+#search-product:focus {
+  border: #666666 1px solid;
+}
+
+#search-button {
+  background-color: var(--color-primary);
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  height: 30px;
+}
+
+#search-button i {
+  color: white;
+}
+
 #products {
   flex: 3;
   display: flex;
@@ -132,9 +204,9 @@ box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.3);
   justify-content: flex-start;
   min-width: 600px;
 }
+
 #card {
   background-color: rgba(255, 255, 250, 0.95);
-  /* very light cream */
   border-radius: 16px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   overflow: hidden;
@@ -145,15 +217,43 @@ box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.3);
   width: 250px;
   margin: 10px;
   border: 1px solid #e4d1b0;
+  align-items: center;
 }
 #card:hover {
   transform: scale(1.02);
 }
 
+#card-upper {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  width: 100%;
+}
+
+#rating,
+#count {
+  border-radius: 5px;
+  background-color: var(--color-background);
+  padding: 5px;
+}
+
+#count {
+  color: var(--color-error);
+}
+
+#rating {
+  color: var(--color-warning);
+}
+
+#count i,
+#rating i {
+  margin: 0px 5px;
+}
+
 #product-image {
-  width: 100px;
-  height: 100%;
-  object-fit: cover;
+  width: 100%;
+  object-fit: contain;
+  height: 180px;
 }
 
 #product-info {
@@ -164,9 +264,9 @@ box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.3);
 }
 
 #product-name {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
-  color: #3e2c1e;
+  color: var(--color-primary);
 }
 
 #control {
@@ -174,6 +274,15 @@ box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.3);
   justify-content: space-between;
   align-items: center;
 }
+
+#control button {
+  border-radius: 5px;
+  background-color: var(--color-secondary);
+  padding: 5px;
+  color: var(--color-primary);
+  border: none;
+}
+
 #product-price {
   font-weight: bold;
   font-size: 1.1rem;
