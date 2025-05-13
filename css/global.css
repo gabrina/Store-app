@@ -47,7 +47,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
   padding: 20px;
 }
 
@@ -139,17 +138,17 @@ header {
   align-items: center;
 }
 
-#index-login-button {
+#index-login-button,#logout-button {
   background-color: white;
   border: none;
   padding: 5px 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
-  margin-right: 70px;
+  margin-right: 10px;
   transition: transform 0.2s ease;
 }
 
-#index-login-button:hover {
+#index-login-button:hover,#logout-button:hover   {
   cursor: pointer;
   transform: scale(1.2);
 }
@@ -162,8 +161,17 @@ header {
 #index-login-button a {
   text-decoration: none;
   color: black;
-  font-size: bold;
+  font-weight: bold;
   font-size: 1rem;
+}
+
+#buttons {
+  margin-right: 60px;
+}
+
+.red a i,
+.red a {
+  color: var(--color-error) !important;
 }
 
 #shop-header {
@@ -270,9 +278,10 @@ header {
 }
 
 #control {
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  /* align-items: center; */
 }
 
 #control button {
@@ -283,8 +292,18 @@ header {
   border: none;
 }
 
+#control button:hover {
+  cursor: pointer;
+  background-color: var(--color-primary);
+  color: var(--color-background);
+}
+
 #product-price {
   font-weight: bold;
   font-size: 1.1rem;
   color: #5b3820;
+}
+
+.hidden{
+  display: none;
 }

@@ -13,16 +13,30 @@
   <body>
     <header>
       <h3>Store App</h3>
-      <button id="index-login-button">
-        <a href="./auth.html">
-          Login<i class="fa-solid fa-right-to-bracket"></i
-        ></a>
-      </button>
+      <section id="buttons">
+        <button id="index-login-button">
+          <a href="./auth.html">
+            Login<i class="fa-solid fa-right-to-bracket"></i
+          ></a>
+        </button>
+        <button id="index-login-button" class="hidden">
+          <a href="./dashboard.html">
+            Dashboard<i class="fa-solid fa-house"></i></i
+          ></a>
+        </button>
+      </section>
     </header>
     <main>
       <h1 id="shop-header">Shop</h1>
-      <input type="text" name="" id="search-product" placeholder="Search product" />
-      <button id="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <input
+        type="text"
+        name=""
+        id="search-product"
+        placeholder="Search product"
+      />
+      <button id="search-button">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
       <section id="products">
         <!-- here comes the cards -->
       </section>
