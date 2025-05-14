@@ -4,11 +4,7 @@ const setCookie = (token) => {
 
 const getCookie = () => {
   const cookie = document.cookie;
-  if (cookie) {
-    return true;
-  } else {
-    return false;
-  }
+  return cookie ? true : false;
 };
 
 export { setCookie, getCookie };

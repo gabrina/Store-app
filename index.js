@@ -2,8 +2,9 @@ import { fetchData } from "./utils/httpReq.js";
 import Products from "./Models/products.js";
 import { getCookie } from "./utils/cookie.js";
 
-const buttons = document.querySelectorAll("#index-login-button");
-console.log(buttons);
+const buttons = document.querySelectorAll(".header-button");
+const searchButton = document.getElementById("search-button");
+const searchData = document.getElementById("search-product");
 
 const init = () => {
   const cookie = getCookie();
@@ -24,8 +25,13 @@ const render = async () => {
   const productsData = await fetchData(`${BASE_URL}products`);
   const productInstances = new Products(productsNode, productsData);
   productInstances.showProducts();
-  console.log(productsData);
 };
 
+const search = () => {
+  filterValue = searchData.value;
+  productInstances.showProducts(DataTransfer, filterValue);
+};
+
+searchButton.addEventListener("click", search);
 window.addEventListener("DOMContentLoaded", render);
 window.addEventListener("DOMContentLoaded", init);
