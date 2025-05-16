@@ -1,15 +1,47 @@
 class Products {
-  constructor(parent, products) {
+  constructor(parent, products, category) {
     this.parent = parent;
     this.products = products;
+    this.currentCategory = category;
   }
 
-  showProducts(filteredCategory = null) {
+  combinedShow(filterValue = null, filterCategory = "all") {
+    console.log(`value:${filterValue}   category:${filterCategory}`);
+    if (!filterValue && filterCategory === "all") {
+      return this.products;
+    } else if (filterValue && filterCategory === "all") {
+      const filteredProducts = this.products.filter((product) =>
+        product.title
+          .trim()
+          .toLowerCase()
+          .includes(filterValue.trim().toLowerCase())
+      );
+      return filteredProducts;
+    } else if (!filterValue && filterCategory) {
+      const filteredProducts = this.products.filter(
+        (product) => product.category === filterCategory
+      );
+      return filteredProducts;
+    } else {
+      //filterValue and filterCategory
+      const filteredProducts = this.products.filter(
+        (product) => product.category === filterCategory
+      );
+      const filteredProducts2 = filteredProducts.filter((product) =>
+        product.title
+          .trim()
+          .toLowerCase()
+          .includes(filterValue.trim().toLowerCase())
+      );
+      return filteredProducts2;
+    }
+  }
+
+  showProducts(filterValue, filterCategory) {
+    console.log(filterValue, filterCategory);
     this.parent.innerHTML = "";
-    const filtered = filteredCategory
-      ? this.products.filter((p) => p.category.includes(filteredCategory))
-      : this.products;
-    filtered.forEach((product) => this.createCard(product));
+    const productsToShow = this.combinedShow(filterValue, filterCategory);
+    productsToShow.forEach((product) => this.createCard(product));
   }
 
   createCard(data) {
