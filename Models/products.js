@@ -5,8 +5,7 @@ class Products {
     this.currentCategory = category;
   }
 
-  combinedShow(filterValue = null, filterCategory = "all") {
-    console.log(`value:${filterValue}   category:${filterCategory}`);
+  combinedShow(filterValue, filterCategory) {
     if (!filterValue && filterCategory === "all") {
       return this.products;
     } else if (filterValue && filterCategory === "all") {
@@ -38,14 +37,13 @@ class Products {
   }
 
   showProducts(filterValue, filterCategory) {
-    console.log(filterValue, filterCategory);
     this.parent.innerHTML = "";
     const productsToShow = this.combinedShow(filterValue, filterCategory);
     productsToShow.forEach((product) => this.createCard(product));
   }
 
   createCard(data) {
-    const { category, id, image, price, rating, title } = data;
+    const { id, image, price, rating, title } = data;
 
     const card = document.createElement("div");
     card.id = "card";

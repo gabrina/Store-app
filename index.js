@@ -6,8 +6,13 @@ const buttons = document.querySelectorAll(".header-button");
 const searchButton = document.getElementById("search-button");
 const searchData = document.getElementById("search-product");
 const categoryListItem = document.querySelectorAll(".category");
+const productsNode = document.getElementById("products");
 
-const init = () => {
+const BASE_URL = "https://fakestoreapi.com/";
+let currentCategorry = "all"
+let productsData = [];
+
+const init = async () => {
   const cookie = getCookie();
   if (cookie) {
     buttons[0].classList.add("hidden");
@@ -16,23 +21,18 @@ const init = () => {
     buttons[0].classList.remove("hidden");
     buttons[1].classList.add("hidden");
   }
+  productsData = await fetchData(`${BASE_URL}products`);
+  render()
 };
 
-const BASE_URL = "https://fakestoreapi.com/";
 
-const productsNode = document.getElementById("products");
 
-const render = async (filterValue = null, filterCategory = "all") => {
-  const productsData = await fetchData(`${BASE_URL}products`);
+const render = () => {
   const productInstances = new Products(productsNode, productsData, "all");
   productInstances.showProducts(
-    filterValue.value,
-    filterCategory.trim().toLowerCase()
+    searchData.value,
+    currentCategorry.trim().toLowerCase()
   );
-};
-
-const search = () => {
-  render(searchData, "all");
 };
 
 const categoryHandeler = (event) => {
@@ -44,12 +44,13 @@ const categoryHandeler = (event) => {
 
   //handeling the products to show
 
-  render(searchData, event.target.innerText);
+  currentCategorry = event.target.innerText;
+
+  render();
 };
 
 categoryListItem.forEach((li) =>
   li.addEventListener("click", categoryHandeler)
 );
-searchButton.addEventListener("click", search);
-window.addEventListener("DOMContentLoaded", render);
+searchButton.addEventListener("click", render);
 window.addEventListener("DOMContentLoaded", init);
